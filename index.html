@@ -353,7 +353,7 @@ td { padding: 11px 13px; font-family: 'DM Mono', monospace; font-size: 11px; whi
 
 <header>
   <div class="logo"><img src="logo.png" alt="Ofitronic" style="height:26px;width:auto;display:block;"> <span style="opacity:0.4;margin:0 6px;">·</span> <span style="font-size:13px;font-weight:600;letter-spacing:1px;opacity:0.85;color:white;">FACTURAS</span></div>
-  <div class="header-badge">v3 · 14/09</div>
+  <div class="header-badge">v4 · 14/09</div>
 </header>
 
 <div class="nav">
@@ -580,6 +580,7 @@ function handlePhoto(input) {
     document.querySelector('.photo-label').style.display = 'none';
     document.querySelector('.photo-sub').style.display = 'none';
     await readInvoiceWithAI(photoData);
+    if (!esPdf) photoData = await achicarFoto(photoData);
   };
   reader.readAsDataURL(file);
 }
@@ -777,10 +778,58 @@ function guardarFactura() {
   };
 
   facturas.unshift(factura);
-  localStorage.setItem('ofitronic_v2', JSON.stringify(facturas));
+  // La foto completa puede pesar varios MB y no entrar en el almacenamiento del
+  // navegador. Se guarda una miniatura; si aun asi no entra, se guarda sin foto
+  // antes que perder la factura.
+  guardarLocal(factura);
   resetForm();
   showToast('✓ Factura guardada · Enviando a Google Sheets...');
   enviarASheets(factura);
+}
+
+function guardarLocal(factura) {
+  try {
+    localStorage.setItem('ofitronic_v2', JSON.stringify(facturas));
+    return true;
+  } catch (e) {
+    console.warn('No entro con foto, reintento sin fotos viejas:', e.name);
+    try {
+      // suelta las fotos de las facturas anteriores, conserva los datos
+      for (let i = 1; i < facturas.length; i++) facturas[i].foto = '';
+      localStorage.setItem('ofitronic_v2', JSON.stringify(facturas));
+      return true;
+    } catch (e2) {
+      try {
+        facturas[0].foto = '';
+        localStorage.setItem('ofitronic_v2', JSON.stringify(facturas));
+        showToast('⚠ Guardada sin la foto: no había espacio en el teléfono');
+        return true;
+      } catch (e3) {
+        showToast('⚠ No se pudo guardar en el teléfono · se envía igual a Sheets');
+        return false;
+      }
+    }
+  }
+}
+
+// Achica la foto antes de guardarla: una imagen de 4 MB pasa a ~150 KB
+function achicarFoto(dataUrl, maxLado = 1400, calidad = 0.62) {
+  return new Promise(resolve => {
+    if (!dataUrl || !dataUrl.startsWith('data:image')) return resolve(dataUrl);
+    const img = new Image();
+    img.onload = () => {
+      let { width: w, height: h } = img;
+      const esc = Math.min(1, maxLado / Math.max(w, h));
+      w = Math.round(w * esc); h = Math.round(h * esc);
+      const cv = document.createElement('canvas');
+      cv.width = w; cv.height = h;
+      cv.getContext('2d').drawImage(img, 0, 0, w, h);
+      try { resolve(cv.toDataURL('image/jpeg', calidad)); }
+      catch { resolve(dataUrl); }
+    };
+    img.onerror = () => resolve(dataUrl);
+    img.src = dataUrl;
+  });
 }
 
 async function enviarASheets(factura) {
