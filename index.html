@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Ofitronic">
 <meta name="theme-color" content="#161b27">
-<title>Ofitronic Â· Facturas</title>
+<title>Ofitronic · Facturas</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,400&family=Bricolage+Grotesque:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -352,8 +352,8 @@ td { padding: 11px 13px; font-family: 'DM Mono', monospace; font-size: 11px; whi
 <body>
 
 <header>
-  <div class="logo"><img src="logo.png" alt="Ofitronic" style="height:26px;width:auto;display:block;"> <span style="opacity:0.4;margin:0 6px;">Â·</span> <span style="font-size:13px;font-weight:600;letter-spacing:1px;opacity:0.85;color:white;">FACTURAS</span></div>
-  <div class="header-badge">v4 Â· 14/09</div>
+  <div class="logo"><img src="logo.png" alt="Ofitronic" style="height:26px;width:auto;display:block;"> <span style="opacity:0.4;margin:0 6px;">·</span> <span style="font-size:13px;font-weight:600;letter-spacing:1px;opacity:0.85;color:white;">FACTURAS</span></div>
+  <div class="header-badge">v5 · 14/09</div>
 </header>
 
 <div class="nav">
@@ -370,12 +370,12 @@ td { padding: 11px 13px; font-family: 'DM Mono', monospace; font-size: 11px; whi
     <!-- FOTO + IA -->
     <div class="card">
       <div class="field">
-        <label>ðŸ“· Foto de la Factura <span style="color:var(--accent);font-size:10px;font-weight:700;">Â· LA IA COMPLETA LOS CAMPOS AUTOMÃTICAMENTE</span></label>
+        <label>📷 Foto de la Factura <span style="color:var(--accent);font-size:10px;font-weight:700;">· LA IA COMPLETA LOS CAMPOS AUTOMÁTICAMENTE</span></label>
         <div class="photo-zone" id="photoZone">
           <input type="file" accept="image/*,application/pdf" id="photoInput" onchange="handlePhoto(this)">
-          <div class="photo-icon">ðŸ“„</div>
+          <div class="photo-icon">📄</div>
           <div class="photo-label">Fotografiar o subir factura</div>
-          <div class="photo-sub">La IA leerÃ¡ los datos automÃ¡ticamente</div>
+          <div class="photo-sub">La IA leerá los datos automáticamente</div>
           <div class="photo-preview" id="photoPreview">
             <img id="photoImg" src="" alt="Factura">
           </div>
@@ -405,12 +405,12 @@ td { padding: 11px 13px; font-family: 'DM Mono', monospace; font-size: 11px; whi
         </div>
 
         <div class="field">
-          <label>NÂ° Factura <span class="suggested-label" id="nroLabel">IA</span></label>
+          <label>N° Factura <span class="suggested-label" id="nroLabel">IA</span></label>
           <input type="text" id="nroFactura" placeholder="001-001-0000001">
         </div>
 
         <div class="field">
-          <label>NÂ° Timbrado <span class="suggested-label" id="timbradoLabel">IA</span></label>
+          <label>N° Timbrado <span class="suggested-label" id="timbradoLabel">IA</span></label>
           <input type="text" id="timbrado" placeholder="12345678">
         </div>
 
@@ -418,22 +418,22 @@ td { padding: 11px 13px; font-family: 'DM Mono', monospace; font-size: 11px; whi
           <label>Tipo de Pago</label>
           <div class="radio-group">
             <div class="radio-opt"><input type="radio" name="tipoPago" id="contado" value="Contado" checked><label for="contado">Contado</label></div>
-            <div class="radio-opt"><input type="radio" name="tipoPago" id="credito" value="CrÃ©dito"><label for="credito">CrÃ©dito</label></div>
+            <div class="radio-opt"><input type="radio" name="tipoPago" id="credito" value="Crédito"><label for="credito">Crédito</label></div>
           </div>
         </div>
 
         <div class="field full">
           <label>Tipo de Factura</label>
           <div class="radio-group">
-            <div class="radio-opt"><input type="radio" name="tipoFactura" id="electronica" value="ElectrÃ³nica" checked><label for="electronica">ElectrÃ³nica</label></div>
-            <div class="radio-opt"><input type="radio" name="tipoFactura" id="fisica" value="FÃ­sica"><label for="fisica">FÃ­sica</label></div>
+            <div class="radio-opt"><input type="radio" name="tipoFactura" id="electronica" value="Electrónica" checked><label for="electronica">Electrónica</label></div>
+            <div class="radio-opt"><input type="radio" name="tipoFactura" id="fisica" value="Física"><label for="fisica">Física</label></div>
           </div>
         </div>
 
         <div class="field full">
-          <label>Monto Total (â‚²) <span class="suggested-label" id="montoLabel">IA</span></label>
+          <label>Monto Total (₲) <span class="suggested-label" id="montoLabel">IA</span></label>
           <input type="number" id="monto" placeholder="0" oninput="updateMonto(this)">
-          <div class="monto-display" id="montoDisplay">â‚² 0</div>
+          <div class="monto-display" id="montoDisplay">₲ 0</div>
         </div>
 
         <div class="field full">
@@ -446,9 +446,9 @@ td { padding: 11px 13px; font-family: 'DM Mono', monospace; font-size: 11px; whi
         </div>
 
         <div class="field full">
-          <label>CategorÃ­a de Gasto <span class="suggested-label" id="catLabel">Sugerido</span></label>
+          <label>Categoría de Gasto <span class="suggested-label" id="catLabel">Sugerido</span></label>
           <select id="categoria">
-            <option value="">â€” Seleccionar categorÃ­a â€”</option>
+            <option value="">— Seleccionar categoría —</option>
           </select>
           <div class="cat-suggestion-bar" id="catSuggestionBar">
             <span>Sugerido: <strong id="catSuggestionText"></strong></span>
@@ -472,29 +472,29 @@ td { padding: 11px 13px; font-family: 'DM Mono', monospace; font-size: 11px; whi
     <div class="section-title">Listado de Facturas</div>
     <div class="stats" id="statsRow"></div>
     <div class="toolbar">
-      <input class="search-box" type="text" placeholder="Buscar proveedor, nÃºmero..." oninput="renderTabla(this.value)">
+      <input class="search-box" type="text" placeholder="Buscar proveedor, número..." oninput="renderTabla(this.value)">
       <select class="filter-select" id="filterEstado" onchange="renderTabla()">
         <option value="">Todos</option>
         <option value="Completo">Completos</option>
         <option value="Pendiente">Pendientes</option>
       </select>
-      <button class="btn btn-export" onclick="exportarExcel()">â†“ Excel</button>
+      <button class="btn btn-export" onclick="exportarExcel()">↓ Excel</button>
     </div>
     <div class="table-wrap">
       <table>
         <thead>
           <tr>
-            <th>Foto</th><th>Fecha</th><th>Proveedor</th><th>NÂ° Factura</th>
-            <th>Monto</th><th>IVA</th><th>CategorÃ­a</th><th>Estado</th><th></th>
+            <th>Foto</th><th>Fecha</th><th>Proveedor</th><th>N° Factura</th>
+            <th>Monto</th><th>IVA</th><th>Categoría</th><th>Estado</th><th></th>
           </tr>
         </thead>
         <tbody id="tablaBody"></tbody>
       </table>
     </div>
     <div class="empty" id="emptyState" style="display:none;">
-      <div class="empty-icon">ðŸ—‚</div>
-      <h3>Sin facturas aÃºn</h3>
-      <p>EmpezÃ¡ registrando tu primera factura desde Nueva.</p>
+      <div class="empty-icon">🗂</div>
+      <h3>Sin facturas aún</h3>
+      <p>Empezá registrando tu primera factura desde Nueva.</p>
     </div>
   </div>
 
@@ -505,7 +505,7 @@ td { padding: 11px 13px; font-family: 'DM Mono', monospace; font-size: 11px; whi
   <div class="modal">
     <div class="modal-header">
       <div class="modal-title" id="modalTitle">Factura</div>
-      <button class="modal-close" onclick="closeModal()">âœ•</button>
+      <button class="modal-close" onclick="closeModal()">✕</button>
     </div>
     <img id="modalImg" src="" alt="">
   </div>
@@ -514,20 +514,20 @@ td { padding: 11px 13px; font-family: 'DM Mono', monospace; font-size: 11px; whi
 <div class="toast" id="toast"></div>
 
 <script>
-// â”€â”€â”€ DATOS REALES DE OFITRONIC â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── DATOS REALES DE OFITRONIC ───────────────────────────
 const CATEGORIAS = {"G01":"COMBUSTIBLE- ADMINISTRACION","G03":"GND - GASTOS GENERALES","G06":"REPARACION Y MANT. DE VEHICULO","G07":"HONORARIO PROFESIONALES","G08":"GASTOS DE IMPORTACION EXENTA","G09":"GASTOS DE IMPORTACION GRAVADA","G11":"IVA 10 %","G13":"SERVICIO DE AGUA, LUZ, COMUNICACION, GRAVADO 10%","G14":"PATENTE COMERCIAL","G15":"UTILES PARA OFICINA","G16":"REPARACION Y MANTENIMIENTO DE OFICINA","G17":"REPARACION Y MANT. DE EQUIPOS","G18":"ALQUILER DE INMUEBLE 10%","G19":"ALQUILER DE INMUEBLE EXENTO","G21":"SERVICIO DE TELEFONIA","G22":"SERVICIO DE INTERNET","G23":"ACTIVO FIJO","G24":"FLETE Y ACARREO EXENTO","G25":"RETENCION RENTA","G26":"CAJA CHICA","G27":"SEGUROS RODADOS","G28":"REPARACION LINEA TELEFONICA","G29":"SERVICIOS CONTRATADOS","G30":"COMISIONES PAGADAS POR SERVICIOS","G31":"SERVICIO CONTRATADOS EXENTO","G33":"REPARACION Y MANTENIMIENTO LOCAL","G34":"COMPENSACION","G35":"COMPRAS VARIAS 5%","G37":"PATENTE DE RODADOS","G38":"ARTICULOS DE LIMPIEZA 10 %","G39":"DONACIONES","G40":"MULTAS Y RECARGOS","G41":"MUEBLES Y EQUIPOS DE OFICINA","G44":"MARKETING Y PUBLICIDAD","G45":"IMPRENTA, PUBLICACIONES Y REPRODUCCIONES","G46":"AJUSTE POR REDONDEO","G48":"GASTOS DE CAFETERIA","G50":"GASTOS BANCARIOS Y SIMILARES 10%","G51":"GASTOS DE FARMACIA 5%","G52":"GASTO DE FARMACIA 10%","G53":"GASTOS BANCARIOS Y SIMILARES EXENTO","G54":"OTROS GASTOS DEL PERSONAL EXENTA","G55":"SEGURIDAD Y VIGILANCIA","G56":"EQUIPOS DE INFORMATICA","G57":"ANTICIPO PROVEEDORES LOCALES","G58":"FLETES- GASTOS ENVIO/MOVILIDAD","G59":"ENVASES, BOLSAS Y EMBALAJES","G62":"PREAVISO E INDEMNIZACION","G64":"SERVICIOS CONTRATADOS- INFORMATICA","G65":"SERVICIO DE AGUA, LUZ, COMUNICACIONES- EXENTA","G66":"OTROS GASTOS AL PERSONAL GRAVADA","G68":"DIFERENCIA DE CAMBIO","G70":"EXPENSAS/ ALQUILER","G71":"GASTOS DE ESCRIBANIA","G72":"UTILES PARA OFICINA EXENTO","G73":"UNIFORMES","G74":"GASTOS AL PERSONAL AL 5%","G75":"REP. Y MANTENIMIENTO DE EQUIPOS - EXENTA","G76":"UNIFORMES - EXENTA","G77":"IPS - APORTE A PAGAR","G78":"IVA A PAGAR","G79":"IMPUESTO INMOBILIARIO","G80":"ANTICIPO IMPUESTO A LA RENTA","G81":"DIVIDENDOS A PAGAR","G82":"GASTOS DE CAFETERIA 5%","G83":"GASTOS DE ESCRIBANIA EXENTA","G84":"COMISION POR VENTA CON TARJETA EXENTA","G85":"COMISION POR VENTA CON TARJETAS 10%","G86":"RETENCION IVA COMPUTABLE","G87":"PRESTAMO DE TERCEROS","G88":"COMBUSTIBLE- COMERCIAL","G89":"INTERESES A PAGAR- PRESTAMOS","G90":"RODADOS","G91":"TARJETA DE CREDITO POR PAGAR","G92":"GANANCIA POR REDONDEO","G93":"GASTOS FINANCIEROS"};
 
-const PROV_MAP = {"ZUSA SACI":{"g":"G46","cat":"AJUSTE POR REDONDEO"},"EMPRESA DE SERVICIOS SANITARIOS DEL PARAGUAY SA (E":{"g":"G13","cat":"SERVICIO DE AGUA, LUZ, COMUNICACION, GRAVADO 10%"},"BADENIA SACI":{"g":"G70","cat":"EXPENSAS/ ALQUILER"},"PAVON DE MOREIRA, GLORIA ELIZABETH":{"g":"G18","cat":"ALQUILER DE INMUEBLE 10%"},"AMANCAY SRL":{"g":"G38","cat":"ARTICULOS DE LIMPIEZA 10 %"},"PARANA FUNCIONAL SOCIEDAD ANONIMA":{"g":"G66","cat":"OTROS GASTOS AL PERSONAL GRAVADA"},"BORDON PATIÃ‘O, LUIS GERARDO":{"g":"G48","cat":"GASTOS DE CAFETERIA"},"NUEVA AMERICANA SA":{"g":"G38","cat":"ARTICULOS DE LIMPIEZA 10 %"},"OMEGA S.R.L.":{"g":"G17","cat":"REPARACION Y MANT. DE EQUIPOS"},"MUSTER SOCIEDAD ANONIMA":{"g":"G48","cat":"GASTOS DE CAFETERIA"},"FERREIRA GRANCE, ROSANA MARGARITA":{"g":"G15","cat":"UTILES PARA OFICINA"},"ALIMENTOS ESPECIALES SOCIEDAD ANONIMA.-":{"g":"G48","cat":"GASTOS DE CAFETERIA"},"INPLAST FILM S.A":{"g":"G59","cat":"ENVASES, BOLSAS Y EMBALAJES"},"BIGGIE S.A.":{"g":"G38","cat":"ARTICULOS DE LIMPIEZA 10 %"},"SAN SILVERIO II SRL":{"g":"G01","cat":"COMBUSTIBLE- ADMINISTRACION"},"PARAGUAY ENERGY SOCIEDAD ANONIMA":{"g":"G01","cat":"COMBUSTIBLE- ADMINISTRACION"},"FERRETERIA GOMEZ E.A.S.":{"g":"G17","cat":"REPARACION Y MANT. DE EQUIPOS"},"BEX SERVICIOS S.A.":{"g":"G01","cat":"COMBUSTIBLE- ADMINISTRACION"},"BANCARD SA":{"g":"G85","cat":"COMISION POR VENTA CON TARJETAS 10%"},"SUDAMERIS BANK SAECA":{"g":"G50","cat":"GASTOS BANCARIOS Y SIMILARES 10%"},"CARGO XPRESS LOGISTICS E.A.S. UNIPERSONAL":{"g":"G08","cat":"GASTOS DE IMPORTACION EXENTA"},"RAVEN INDUSTRIES":{"g":"G08","cat":"GASTOS DE IMPORTACION EXENTA"},"COMPAÃ‘IA SAN IGNACIO SA":{"g":"G58","cat":"FLETES- GASTOS ENVIO/MOVILIDAD"},"GTS EXPRESS E.A.S.":{"g":"G58","cat":"FLETES- GASTOS ENVIO/MOVILIDAD"},"MG EXPRESS SOCIEDAD ANONIMA":{"g":"G58","cat":"FLETES- GASTOS ENVIO/MOVILIDAD"},"JC EXPRESS E.A.S.":{"g":"G58","cat":"FLETES- GASTOS ENVIO/MOVILIDAD"},"RICHARD ESCOBAR":{"g":"G17","cat":"REPARACION Y MANT. DE EQUIPOS"},"EMPRESA GUAIREÃ‘A DE TRANSPORTE Y TURISMO S.R.L.":{"g":"G58","cat":"FLETES- GASTOS ENVIO/MOVILIDAD"},"PAREDES BRITEZ, JUAN DOMINGO":{"g":"G58","cat":"FLETES- GASTOS ENVIO/MOVILIDAD"},"JC EMPRENDIMIENTOS S.A.":{"g":"G56","cat":"EQUIPOS DE INFORMATICA"},"CARDOZO CABRAL, JOSE ADRIAN":{"g":"G58","cat":"FLETES- GASTOS ENVIO/MOVILIDAD"},"MULTIENVIOS SOCIEDAD ANONIMA":{"g":"G58","cat":"FLETES- GASTOS ENVIO/MOVILIDAD"},"EMPRESA DE TRANSPORTE LA SAMPEDRANA SRL":{"g":"G58","cat":"FLETES- GASTOS ENVIO/MOVILIDAD"},"MC TRANSPORTES SA":{"g":"G09","cat":"GASTOS DE IMPORTACION GRAVADA"},"EMPRESA DE TRANSPORTE SAN JUAN S.R.L.":{"g":"G58","cat":"FLETES- GASTOS ENVIO/MOVILIDAD"},"TUPI RAMOS GENERALES S.A.":{"g":"G56","cat":"EQUIPOS DE INFORMATICA"},"CADENA REAL SA":{"g":"G44","cat":"MARKETING  Y PUBLICIDAD"},"Integral GMBH":{"g":"G08","cat":"GASTOS DE IMPORTACION EXENTA"},"IBC INTERNATIONAL BUSINESS COPIERS":{"g":"G08","cat":"GASTOS DE IMPORTACION EXENTA"},"LBT Office Supplies (HK) Limited":{"g":"G08","cat":"GASTOS DE IMPORTACION EXENTA"},"SACO SHIPPING S.A":{"g":"G09","cat":"GASTOS DE IMPORTACION GRAVADA"},"ADMINISTRACION NACIONAL DE NAVEGACION Y PUERTOS":{"g":"G08","cat":"GASTOS DE IMPORTACION EXENTA"},"FRONTIER IMAGING":{"g":"G08","cat":"GASTOS DE IMPORTACION EXENTA"},"SALAS BENITEZ, JUAN ALBERTO":{"g":"G09","cat":"GASTOS DE IMPORTACION GRAVADA"},"CENTRO DE  DESPACHANTES DE ADUANA DEL PARAGUAY":{"g":"G09","cat":"GASTOS DE IMPORTACION GRAVADA"},"BARRIENTOS UNZAIN, JAVIER ANIBAL":{"g":"G09","cat":"GASTOS DE IMPORTACION GRAVADA"},"ROJAS MELGAREJO, CARLOS DAMIAN":{"g":"G09","cat":"GASTOS DE IMPORTACION GRAVADA"},"TERMINALES PORTUARIAS SA":{"g":"G09","cat":"GASTOS DE IMPORTACION GRAVADA"},"VALDEZ BENITEZ, EWARD WILFRIDO":{"g":"G09","cat":"GASTOS DE IMPORTACION GRAVADA"},"PUERTOS Y ESTIBAJES SA":{"g":"G09","cat":"GASTOS DE IMPORTACION GRAVADA"},"ADMINISTRACION NACIONAL DE ELECTRICIDAD - ANDE":{"g":"G13","cat":"SERVICIO DE AGUA, LUZ, COMUNICACION, GRAVADO 10%"},"NEMETZ, FRIEDRICH GUNTER":{"g":"G07","cat":"HONORARIO PROFESIONALES"},"GOPRINT SRL":{"g":"G44","cat":"MARKETING  Y PUBLICIDAD"},"MERCADO CENTRAL SA":{"g":"G66","cat":"OTROS GASTOS AL PERSONAL GRAVADA"},"LA VIENESA SA":{"g":"G44","cat":"MARKETING  Y PUBLICIDAD"},"FERIA ASUNCION SA":{"g":"G66","cat":"OTROS GASTOS AL PERSONAL GRAVADA"},"LIBRERIA Y PAPELERIA NOVA SA":{"g":"G15","cat":"UTILES PARA OFICINA"},"GONZALEZ BRIZUELA, MARIANO":{"g":"G17","cat":"REPARACION Y MANT. DE EQUIPOS"},"SANITARIOS Y CERAMICAS S.A.C.I.":{"g":"G33","cat":"REPARACION Y MANTENIMIENTO LOCAL"},"PIRO'Y SA":{"g":"G16","cat":"REPARACION Y MANTENIMIENTO DE OFICINA"},"MERCO SUR SPORTS WORLD CORPORATION":{"g":"G66","cat":"OTROS GASTOS AL PERSONAL GRAVADA"},"ERIKA MABEL VERA GAUTO":{"g":"G66","cat":"OTROS GASTOS AL PERSONAL GRAVADA"},"COMPUMARKET  S.A.":{"g":"G66","cat":"OTROS GASTOS AL PERSONAL GRAVADA"},"FLOR DE COCO S.A.":{"g":"G66","cat":"OTROS GASTOS AL PERSONAL GRAVADA"},"MUNICIPALIDAD DE LA CIUDAD DE ASUNCION":{"g":"G14","cat":"PATENTE COMERCIAL"},"ERIKA LUJAN ESCOBAR ORTIZ":{"g":"G17","cat":"REPARACION Y MANT. DE EQUIPOS"},"CASA ORE SRL":{"g":"G17","cat":"REPARACION Y MANT. DE EQUIPOS"},"ALEXIS EMMANUEL MORINIGO GOMEZ C Y C DISTRIBUIDORA":{"g":"G17","cat":"REPARACION Y MANT. DE EQUIPOS"},"FERREVENTAS  S.A.":{"g":"G17","cat":"REPARACION Y MANT. DE EQUIPOS"},"GARCIA CANE, HECTOR SANTIAGO":{"g":"G17","cat":"REPARACION Y MANT. DE EQUIPOS"},"ELECTROPAR SA":{"g":"G17","cat":"REPARACION Y MANT. DE EQUIPOS"},"BRITOS LARROZA, EDGAR CRISTOBAL":{"g":"G17","cat":"REPARACION Y MANT. DE EQUIPOS"},"COMPAÃ‘IA COMERCIAL DEL PARAGUAY SA":{"g":"G17","cat":"REPARACION Y MANT. DE EQUIPOS"},"FERRETERIA QUINTA AVENIDA IMPORT EXPORT S.A.":{"g":"G17","cat":"REPARACION Y MANT. DE EQUIPOS"},"KIDON S.A":{"g":"G55","cat":"SEGURIDAD Y VIGILANCIA"},"THEOTECH SOCIEDAD DE RESPONSABILIDAD LIMITADA":{"g":"G17","cat":"REPARACION Y MANT. DE EQUIPOS"},"ISAAC MOTORS Y EQUIPAMIENTOS E.A.S.":{"g":"G06","cat":"REPARACION Y MANT. DE VEHICULO"},"CUEVAS HERMANOS SA":{"g":"G06","cat":"REPARACION Y MANT. DE VEHICULO"},"LUXACORP S.A":{"g":"G06","cat":"REPARACION Y MANT. DE VEHICULO"},"GOMEZ ESGAIB, LUIS SALMIEN":{"g":"G06","cat":"REPARACION Y MANT. DE VEHICULO"},"COMPAÃ‘IA PARAGUAYA DE RULEMANES  Y REPUESTOS SA":{"g":"G06","cat":"REPARACION Y MANT. DE VEHICULO"},"AUTOMOTORES Y MAQUINARIA SAECA":{"g":"G06","cat":"REPARACION Y MANT. DE VEHICULO"},"KAWAI S.A":{"g":"G16","cat":"REPARACION Y MANTENIMIENTO DE OFICINA"},"Ã‘ANDE ROGA SRL":{"g":"G33","cat":"REPARACION Y MANTENIMIENTO LOCAL"},"DON ANGEL SA":{"g":"G16","cat":"REPARACION Y MANTENIMIENTO DE OFICINA"},"PEDROZO BARRIOS, DERLIS ANTONIO":{"g":"G16","cat":"REPARACION Y MANTENIMIENTO DE OFICINA"},"MASTER COLOR S.A.":{"g":"G33","cat":"REPARACION Y MANTENIMIENTO LOCAL"},"RIVAROLA ALVARENGA, ALICIA RAQUEL":{"g":"G16","cat":"REPARACION Y MANTENIMIENTO DE OFICINA"},"FORMA INDUSTRIA Y COMERCIO  S.R.L.":{"g":"G16","cat":"REPARACION Y MANTENIMIENTO DE OFICINA"},"HIERROPAR SACI":{"g":"G16","cat":"REPARACION Y MANTENIMIENTO DE OFICINA"},"FERROPAR SA":{"g":"G16","cat":"REPARACION Y MANTENIMIENTO DE OFICINA"},"GARCIA, OMAR":{"g":"G16","cat":"REPARACION Y MANTENIMIENTO DE OFICINA"},"MAPFRE PARAGUAY COMPAÃ‘IA DE SEGUROS SA":{"g":"G27","cat":"SEGUROS RODADOS"},"NUCLEO SA":{"g":"G22","cat":"SERVICIO DE INTERNET"},"TELEF. CELULAR DEL PARAGUAY SAE (TELECEL SAE)":{"g":"G22","cat":"SERVICIO DE INTERNET"},"SELTZ SA":{"g":"G48","cat":"GASTOS DE CAFETERIA"},"POZZO DE LOPEZ, MARIA VERONICA":{"g":"G29","cat":"SERVICIOS CONTRATADOS"},"EQUIFAX PARAGUAY S.A.":{"g":"G29","cat":"SERVICIOS CONTRATADOS"},"CODE 100 S.A.":{"g":"G64","cat":"SERVICIOS CONTRATADOS- INFORMATICA"},"GASPARINI CANTON, JOSE ANGELO":{"g":"G64","cat":"SERVICIOS CONTRATADOS- INFORMATICA"},"PRESTIGE REALTY GROUP E.A.S.":{"g":"G64","cat":"SERVICIOS CONTRATADOS- INFORMATICA"},"CASA MAITA SRL":{"g":"G15","cat":"UTILES PARA OFICINA"},"CINTAS SOCIEDAD ANONIMA":{"g":"G15","cat":"UTILES PARA OFICINA"},"FARMA S.A.":{"g":"G52","cat":"GASTO DE FARMACIA 10%"},"CADENA FARMACENTER SA":{"g":"G52","cat":"GASTO DE FARMACIA 10%"},"COMPAÃ‘IA PARAGUAYA DE COMUNICACIONES SA (COPACO SA":{"g":"G13","cat":"SERVICIO DE AGUA, LUZ, COMUNICACION, GRAVADO 10%"},"ESTACION BAHIA SA":{"g":"G01","cat":"COMBUSTIBLE- ADMINISTRACION"},"NONUS S.R.L":{"g":"G01","cat":"COMBUSTIBLE- ADMINISTRACION"},"COMBU BAR COMPANY S.R.L":{"g":"G01","cat":"COMBUSTIBLE- ADMINISTRACION"},"RED DIGITAL DE PROCESAMIENTO SA":{"g":"G85","cat":"COMISION POR VENTA CON TARJETAS 10%"},"EBEA E.A.S":{"g":"G56","cat":"EQUIPOS DE INFORMATICA"},"GLASS FINISH E.A.S.":{"g":"G33","cat":"REPARACION Y MANTENIMIENTO LOCAL"},"FABULA CREACIONES S.A":{"g":"G33","cat":"REPARACION Y MANTENIMIENTO LOCAL"},"GARDEN MPY S.A.":{"g":"G90","cat":"RODADOS"},"ALARMAS PROSEGUR PARAGUAY  S.A.":{"g":"G55","cat":"SEGURIDAD Y VIGILANCIA"},"REGIMIENTO 8 SA":{"g":"G55","cat":"SEGURIDAD Y VIGILANCIA"},"LIBRERIA Y PAPELERIA NOVA SA":{"g":"G15","cat":"UTILES PARA OFICINA"},"FLEITAS LEGUIZAMON, FRANCISCO AMADO":{"g":"G16","cat":"REPARACION Y MANTENIMIENTO DE OFICINA"},"SAAVEDRA FRANCO, ANDRES JULIAN":{"g":"G29","cat":"SERVICIOS CONTRATADOS"},"CUERPO DE BOMBEROS VOLUNTARIOS DE ASUNCION":{"g":"G39","cat":"DONACIONES"},"ASOCIACION DE EMPLEADOS DE ADUANAS (A.E.D.A.)":{"g":"G09","cat":"GASTOS DE IMPORTACION GRAVADA"},"SAGAS SA":{"g":"G58","cat":"FLETES- GASTOS ENVIO/MOVILIDAD"},"SUPERMERCADO VILLA SOFIA SA":{"g":"G48","cat":"GASTOS DE CAFETERIA"},"BANCO BASA SA":{"g":"G93","cat":"GASTOS FINANCIEROS"},"RETAIL S.A.":{"g":"G48","cat":"GASTOS DE CAFETERIA"}};
+const PROV_MAP = {"ZUSA SACI":{"g":"G46","cat":"AJUSTE POR REDONDEO"},"EMPRESA DE SERVICIOS SANITARIOS DEL PARAGUAY SA (E":{"g":"G13","cat":"SERVICIO DE AGUA, LUZ, COMUNICACION, GRAVADO 10%"},"BADENIA SACI":{"g":"G70","cat":"EXPENSAS/ ALQUILER"},"PAVON DE MOREIRA, GLORIA ELIZABETH":{"g":"G18","cat":"ALQUILER DE INMUEBLE 10%"},"AMANCAY SRL":{"g":"G38","cat":"ARTICULOS DE LIMPIEZA 10 %"},"PARANA FUNCIONAL SOCIEDAD ANONIMA":{"g":"G66","cat":"OTROS GASTOS AL PERSONAL GRAVADA"},"BORDON PATIÑO, LUIS GERARDO":{"g":"G48","cat":"GASTOS DE CAFETERIA"},"NUEVA AMERICANA SA":{"g":"G38","cat":"ARTICULOS DE LIMPIEZA 10 %"},"OMEGA S.R.L.":{"g":"G17","cat":"REPARACION Y MANT. DE EQUIPOS"},"MUSTER SOCIEDAD ANONIMA":{"g":"G48","cat":"GASTOS DE CAFETERIA"},"FERREIRA GRANCE, ROSANA MARGARITA":{"g":"G15","cat":"UTILES PARA OFICINA"},"ALIMENTOS ESPECIALES SOCIEDAD ANONIMA.-":{"g":"G48","cat":"GASTOS DE CAFETERIA"},"INPLAST FILM S.A":{"g":"G59","cat":"ENVASES, BOLSAS Y EMBALAJES"},"BIGGIE S.A.":{"g":"G38","cat":"ARTICULOS DE LIMPIEZA 10 %"},"SAN SILVERIO II SRL":{"g":"G01","cat":"COMBUSTIBLE- ADMINISTRACION"},"PARAGUAY ENERGY SOCIEDAD ANONIMA":{"g":"G01","cat":"COMBUSTIBLE- ADMINISTRACION"},"FERRETERIA GOMEZ E.A.S.":{"g":"G17","cat":"REPARACION Y MANT. DE EQUIPOS"},"BEX SERVICIOS S.A.":{"g":"G01","cat":"COMBUSTIBLE- ADMINISTRACION"},"BANCARD SA":{"g":"G85","cat":"COMISION POR VENTA CON TARJETAS 10%"},"SUDAMERIS BANK SAECA":{"g":"G50","cat":"GASTOS BANCARIOS Y SIMILARES 10%"},"CARGO XPRESS LOGISTICS E.A.S. UNIPERSONAL":{"g":"G08","cat":"GASTOS DE IMPORTACION EXENTA"},"RAVEN INDUSTRIES":{"g":"G08","cat":"GASTOS DE IMPORTACION EXENTA"},"COMPAÑIA SAN IGNACIO SA":{"g":"G58","cat":"FLETES- GASTOS ENVIO/MOVILIDAD"},"GTS EXPRESS E.A.S.":{"g":"G58","cat":"FLETES- GASTOS ENVIO/MOVILIDAD"},"MG EXPRESS SOCIEDAD ANONIMA":{"g":"G58","cat":"FLETES- GASTOS ENVIO/MOVILIDAD"},"JC EXPRESS E.A.S.":{"g":"G58","cat":"FLETES- GASTOS ENVIO/MOVILIDAD"},"RICHARD ESCOBAR":{"g":"G17","cat":"REPARACION Y MANT. DE EQUIPOS"},"EMPRESA GUAIREÑA DE TRANSPORTE Y TURISMO S.R.L.":{"g":"G58","cat":"FLETES- GASTOS ENVIO/MOVILIDAD"},"PAREDES BRITEZ, JUAN DOMINGO":{"g":"G58","cat":"FLETES- GASTOS ENVIO/MOVILIDAD"},"JC EMPRENDIMIENTOS S.A.":{"g":"G56","cat":"EQUIPOS DE INFORMATICA"},"CARDOZO CABRAL, JOSE ADRIAN":{"g":"G58","cat":"FLETES- GASTOS ENVIO/MOVILIDAD"},"MULTIENVIOS SOCIEDAD ANONIMA":{"g":"G58","cat":"FLETES- GASTOS ENVIO/MOVILIDAD"},"EMPRESA DE TRANSPORTE LA SAMPEDRANA SRL":{"g":"G58","cat":"FLETES- GASTOS ENVIO/MOVILIDAD"},"MC TRANSPORTES SA":{"g":"G09","cat":"GASTOS DE IMPORTACION GRAVADA"},"EMPRESA DE TRANSPORTE SAN JUAN S.R.L.":{"g":"G58","cat":"FLETES- GASTOS ENVIO/MOVILIDAD"},"TUPI RAMOS GENERALES S.A.":{"g":"G56","cat":"EQUIPOS DE INFORMATICA"},"CADENA REAL SA":{"g":"G44","cat":"MARKETING  Y PUBLICIDAD"},"Integral GMBH":{"g":"G08","cat":"GASTOS DE IMPORTACION EXENTA"},"IBC INTERNATIONAL BUSINESS COPIERS":{"g":"G08","cat":"GASTOS DE IMPORTACION EXENTA"},"LBT Office Supplies (HK) Limited":{"g":"G08","cat":"GASTOS DE IMPORTACION EXENTA"},"SACO SHIPPING S.A":{"g":"G09","cat":"GASTOS DE IMPORTACION GRAVADA"},"ADMINISTRACION NACIONAL DE NAVEGACION Y PUERTOS":{"g":"G08","cat":"GASTOS DE IMPORTACION EXENTA"},"FRONTIER IMAGING":{"g":"G08","cat":"GASTOS DE IMPORTACION EXENTA"},"SALAS BENITEZ, JUAN ALBERTO":{"g":"G09","cat":"GASTOS DE IMPORTACION GRAVADA"},"CENTRO DE  DESPACHANTES DE ADUANA DEL PARAGUAY":{"g":"G09","cat":"GASTOS DE IMPORTACION GRAVADA"},"BARRIENTOS UNZAIN, JAVIER ANIBAL":{"g":"G09","cat":"GASTOS DE IMPORTACION GRAVADA"},"ROJAS MELGAREJO, CARLOS DAMIAN":{"g":"G09","cat":"GASTOS DE IMPORTACION GRAVADA"},"TERMINALES PORTUARIAS SA":{"g":"G09","cat":"GASTOS DE IMPORTACION GRAVADA"},"VALDEZ BENITEZ, EWARD WILFRIDO":{"g":"G09","cat":"GASTOS DE IMPORTACION GRAVADA"},"PUERTOS Y ESTIBAJES SA":{"g":"G09","cat":"GASTOS DE IMPORTACION GRAVADA"},"ADMINISTRACION NACIONAL DE ELECTRICIDAD - ANDE":{"g":"G13","cat":"SERVICIO DE AGUA, LUZ, COMUNICACION, GRAVADO 10%"},"NEMETZ, FRIEDRICH GUNTER":{"g":"G07","cat":"HONORARIO PROFESIONALES"},"GOPRINT SRL":{"g":"G44","cat":"MARKETING  Y PUBLICIDAD"},"MERCADO CENTRAL SA":{"g":"G66","cat":"OTROS GASTOS AL PERSONAL GRAVADA"},"LA VIENESA SA":{"g":"G44","cat":"MARKETING  Y PUBLICIDAD"},"FERIA ASUNCION SA":{"g":"G66","cat":"OTROS GASTOS AL PERSONAL GRAVADA"},"LIBRERIA Y PAPELERIA NOVA SA":{"g":"G15","cat":"UTILES PARA OFICINA"},"GONZALEZ BRIZUELA, MARIANO":{"g":"G17","cat":"REPARACION Y MANT. DE EQUIPOS"},"SANITARIOS Y CERAMICAS S.A.C.I.":{"g":"G33","cat":"REPARACION Y MANTENIMIENTO LOCAL"},"PIRO'Y SA":{"g":"G16","cat":"REPARACION Y MANTENIMIENTO DE OFICINA"},"MERCO SUR SPORTS WORLD CORPORATION":{"g":"G66","cat":"OTROS GASTOS AL PERSONAL GRAVADA"},"ERIKA MABEL VERA GAUTO":{"g":"G66","cat":"OTROS GASTOS AL PERSONAL GRAVADA"},"COMPUMARKET  S.A.":{"g":"G66","cat":"OTROS GASTOS AL PERSONAL GRAVADA"},"FLOR DE COCO S.A.":{"g":"G66","cat":"OTROS GASTOS AL PERSONAL GRAVADA"},"MUNICIPALIDAD DE LA CIUDAD DE ASUNCION":{"g":"G14","cat":"PATENTE COMERCIAL"},"ERIKA LUJAN ESCOBAR ORTIZ":{"g":"G17","cat":"REPARACION Y MANT. DE EQUIPOS"},"CASA ORE SRL":{"g":"G17","cat":"REPARACION Y MANT. DE EQUIPOS"},"ALEXIS EMMANUEL MORINIGO GOMEZ C Y C DISTRIBUIDORA":{"g":"G17","cat":"REPARACION Y MANT. DE EQUIPOS"},"FERREVENTAS  S.A.":{"g":"G17","cat":"REPARACION Y MANT. DE EQUIPOS"},"GARCIA CANE, HECTOR SANTIAGO":{"g":"G17","cat":"REPARACION Y MANT. DE EQUIPOS"},"ELECTROPAR SA":{"g":"G17","cat":"REPARACION Y MANT. DE EQUIPOS"},"BRITOS LARROZA, EDGAR CRISTOBAL":{"g":"G17","cat":"REPARACION Y MANT. DE EQUIPOS"},"COMPAÑIA COMERCIAL DEL PARAGUAY SA":{"g":"G17","cat":"REPARACION Y MANT. DE EQUIPOS"},"FERRETERIA QUINTA AVENIDA IMPORT EXPORT S.A.":{"g":"G17","cat":"REPARACION Y MANT. DE EQUIPOS"},"KIDON S.A":{"g":"G55","cat":"SEGURIDAD Y VIGILANCIA"},"THEOTECH SOCIEDAD DE RESPONSABILIDAD LIMITADA":{"g":"G17","cat":"REPARACION Y MANT. DE EQUIPOS"},"ISAAC MOTORS Y EQUIPAMIENTOS E.A.S.":{"g":"G06","cat":"REPARACION Y MANT. DE VEHICULO"},"CUEVAS HERMANOS SA":{"g":"G06","cat":"REPARACION Y MANT. DE VEHICULO"},"LUXACORP S.A":{"g":"G06","cat":"REPARACION Y MANT. DE VEHICULO"},"GOMEZ ESGAIB, LUIS SALMIEN":{"g":"G06","cat":"REPARACION Y MANT. DE VEHICULO"},"COMPAÑIA PARAGUAYA DE RULEMANES  Y REPUESTOS SA":{"g":"G06","cat":"REPARACION Y MANT. DE VEHICULO"},"AUTOMOTORES Y MAQUINARIA SAECA":{"g":"G06","cat":"REPARACION Y MANT. DE VEHICULO"},"KAWAI S.A":{"g":"G16","cat":"REPARACION Y MANTENIMIENTO DE OFICINA"},"ÑANDE ROGA SRL":{"g":"G33","cat":"REPARACION Y MANTENIMIENTO LOCAL"},"DON ANGEL SA":{"g":"G16","cat":"REPARACION Y MANTENIMIENTO DE OFICINA"},"PEDROZO BARRIOS, DERLIS ANTONIO":{"g":"G16","cat":"REPARACION Y MANTENIMIENTO DE OFICINA"},"MASTER COLOR S.A.":{"g":"G33","cat":"REPARACION Y MANTENIMIENTO LOCAL"},"RIVAROLA ALVARENGA, ALICIA RAQUEL":{"g":"G16","cat":"REPARACION Y MANTENIMIENTO DE OFICINA"},"FORMA INDUSTRIA Y COMERCIO  S.R.L.":{"g":"G16","cat":"REPARACION Y MANTENIMIENTO DE OFICINA"},"HIERROPAR SACI":{"g":"G16","cat":"REPARACION Y MANTENIMIENTO DE OFICINA"},"FERROPAR SA":{"g":"G16","cat":"REPARACION Y MANTENIMIENTO DE OFICINA"},"GARCIA, OMAR":{"g":"G16","cat":"REPARACION Y MANTENIMIENTO DE OFICINA"},"MAPFRE PARAGUAY COMPAÑIA DE SEGUROS SA":{"g":"G27","cat":"SEGUROS RODADOS"},"NUCLEO SA":{"g":"G22","cat":"SERVICIO DE INTERNET"},"TELEF. CELULAR DEL PARAGUAY SAE (TELECEL SAE)":{"g":"G22","cat":"SERVICIO DE INTERNET"},"SELTZ SA":{"g":"G48","cat":"GASTOS DE CAFETERIA"},"POZZO DE LOPEZ, MARIA VERONICA":{"g":"G29","cat":"SERVICIOS CONTRATADOS"},"EQUIFAX PARAGUAY S.A.":{"g":"G29","cat":"SERVICIOS CONTRATADOS"},"CODE 100 S.A.":{"g":"G64","cat":"SERVICIOS CONTRATADOS- INFORMATICA"},"GASPARINI CANTON, JOSE ANGELO":{"g":"G64","cat":"SERVICIOS CONTRATADOS- INFORMATICA"},"PRESTIGE REALTY GROUP E.A.S.":{"g":"G64","cat":"SERVICIOS CONTRATADOS- INFORMATICA"},"CASA MAITA SRL":{"g":"G15","cat":"UTILES PARA OFICINA"},"CINTAS SOCIEDAD ANONIMA":{"g":"G15","cat":"UTILES PARA OFICINA"},"FARMA S.A.":{"g":"G52","cat":"GASTO DE FARMACIA 10%"},"CADENA FARMACENTER SA":{"g":"G52","cat":"GASTO DE FARMACIA 10%"},"COMPAÑIA PARAGUAYA DE COMUNICACIONES SA (COPACO SA":{"g":"G13","cat":"SERVICIO DE AGUA, LUZ, COMUNICACION, GRAVADO 10%"},"ESTACION BAHIA SA":{"g":"G01","cat":"COMBUSTIBLE- ADMINISTRACION"},"NONUS S.R.L":{"g":"G01","cat":"COMBUSTIBLE- ADMINISTRACION"},"COMBU BAR COMPANY S.R.L":{"g":"G01","cat":"COMBUSTIBLE- ADMINISTRACION"},"RED DIGITAL DE PROCESAMIENTO SA":{"g":"G85","cat":"COMISION POR VENTA CON TARJETAS 10%"},"EBEA E.A.S":{"g":"G56","cat":"EQUIPOS DE INFORMATICA"},"GLASS FINISH E.A.S.":{"g":"G33","cat":"REPARACION Y MANTENIMIENTO LOCAL"},"FABULA CREACIONES S.A":{"g":"G33","cat":"REPARACION Y MANTENIMIENTO LOCAL"},"GARDEN MPY S.A.":{"g":"G90","cat":"RODADOS"},"ALARMAS PROSEGUR PARAGUAY  S.A.":{"g":"G55","cat":"SEGURIDAD Y VIGILANCIA"},"REGIMIENTO 8 SA":{"g":"G55","cat":"SEGURIDAD Y VIGILANCIA"},"LIBRERIA Y PAPELERIA NOVA SA":{"g":"G15","cat":"UTILES PARA OFICINA"},"FLEITAS LEGUIZAMON, FRANCISCO AMADO":{"g":"G16","cat":"REPARACION Y MANTENIMIENTO DE OFICINA"},"SAAVEDRA FRANCO, ANDRES JULIAN":{"g":"G29","cat":"SERVICIOS CONTRATADOS"},"CUERPO DE BOMBEROS VOLUNTARIOS DE ASUNCION":{"g":"G39","cat":"DONACIONES"},"ASOCIACION DE EMPLEADOS DE ADUANAS (A.E.D.A.)":{"g":"G09","cat":"GASTOS DE IMPORTACION GRAVADA"},"SAGAS SA":{"g":"G58","cat":"FLETES- GASTOS ENVIO/MOVILIDAD"},"SUPERMERCADO VILLA SOFIA SA":{"g":"G48","cat":"GASTOS DE CAFETERIA"},"BANCO BASA SA":{"g":"G93","cat":"GASTOS FINANCIEROS"},"RETAIL S.A.":{"g":"G48","cat":"GASTOS DE CAFETERIA"}};
 
-// â”€â”€â”€ CONFIG â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── CONFIG ──────────────────────────────────────────────
 const SHEETS_URL = 'https://script.google.com/macros/s/AKfycbypOvpfmNNyypNlNIYEHRJjFE8aHERcAb67CUGJXHXciJYG2YthGE9J5I60PklzORQD/exec';
 
-// â”€â”€â”€ STATE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── STATE ───────────────────────────────────────────────
 let facturas = JSON.parse(localStorage.getItem('ofitronic_v2') || '[]');
 let photoData = null;
 let currentSuggestion = null;
 
-// â”€â”€â”€ INIT â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── INIT ────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
   const hoy = new Date().toISOString().split('T')[0];
   document.getElementById('fecha').value = hoy;
@@ -547,12 +547,12 @@ function populateCategorias() {
   sorted.forEach(([g, cat]) => {
     const opt = document.createElement('option');
     opt.value = g;
-    opt.textContent = `${g} Â· ${cat}`;
+    opt.textContent = `${g} · ${cat}`;
     sel.appendChild(opt);
   });
 }
 
-// â”€â”€â”€ NAVIGATION â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── NAVIGATION ──────────────────────────────────────────
 function showView(name, btn) {
   document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
   document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
@@ -561,7 +561,7 @@ function showView(name, btn) {
   if (name === 'listado') { renderTabla(); renderStats(); }
 }
 
-// â”€â”€â”€ PHOTO + IA â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── PHOTO + IA ──────────────────────────────────────────
 function handlePhoto(input) {
   const file = input.files[0];
   if (!file) return;
@@ -571,7 +571,7 @@ function handlePhoto(input) {
     const esPdf = String(file.type || '').includes('pdf');
     if (esPdf){
       document.getElementById('photoImg').removeAttribute('src');
-      document.getElementById('photoImg').alt = 'ðŸ“„ ' + file.name;
+      document.getElementById('photoImg').alt = '📄 ' + file.name;
     } else {
       document.getElementById('photoImg').src = photoData;
     }
@@ -609,16 +609,16 @@ async function readInvoiceWithAI(base64Data) {
 
     if (parsed) {
       window._ultimoOCR = parsed;
-      statusText.textContent = 'âœ“ Datos extraÃ­dos correctamente' +
-        (parsed.cdc ? ' Â· CDC detectado' : '');
+      statusText.textContent = '✓ Datos extraídos correctamente' +
+        (parsed.cdc ? ' · CDC detectado' : '');
       fillFieldsFromAI(parsed);
       setTimeout(() => status.classList.remove('show'), 3000);
     } else {
-      statusText.textContent = data.error ? 'âš  ' + data.error : 'âš  No se leyeron todos los datos. CompletÃ¡ manualmente.';
+      statusText.textContent = data.error ? '⚠ ' + data.error : '⚠ No se leyeron todos los datos. Completá manualmente.';
       setTimeout(() => status.classList.remove('show'), 4000);
     }
   } catch (err) {
-    statusText.textContent = 'âš  ' + (err.message || 'Error al leer. CompletÃ¡ manualmente.');
+    statusText.textContent = '⚠ ' + (err.message || 'Error al leer. Completá manualmente.');
     setTimeout(() => status.classList.remove('show'), 4000);
   }
 }
@@ -634,7 +634,7 @@ function fillFieldsFromAI(data) {
   if (data.timbrado) { setFieldAI('timbrado', data.timbrado); document.getElementById('timbradoLabel').classList.add('show'); }
   if (data.monto) {
     setFieldAI('monto', data.monto);
-    document.getElementById('montoDisplay').textContent = 'â‚² ' + parseInt(data.monto).toLocaleString('es-PY');
+    document.getElementById('montoDisplay').textContent = '₲ ' + parseInt(data.monto).toLocaleString('es-PY');
     document.getElementById('montoLabel').classList.add('show');
   }
   if (data.tipoPago) {
@@ -647,7 +647,7 @@ function fillFieldsFromAI(data) {
     document.querySelectorAll('input[name="iva"]').forEach(r => r.checked = r.value === data.iva);
     document.getElementById('ivaLabel').classList.add('show');
   }
-  showToast('âœ“ IA leyÃ³ la factura exitosamente');
+  showToast('✓ IA leyó la factura exitosamente');
 }
 
 function setFieldAI(id, value) {
@@ -656,7 +656,7 @@ function setFieldAI(id, value) {
   el.classList.add('ai-filled');
 }
 
-// â”€â”€â”€ PROVEEDOR AUTOCOMPLETE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── PROVEEDOR AUTOCOMPLETE ───────────────────────────────
 function handleProveedorInput(val) {
   const list = document.getElementById('autocompleteList');
   if (!val || val.length < 2) { list.style.display = 'none'; return; }
@@ -720,7 +720,7 @@ function suggestCategoriaForProveedor(prov) {
 
   if (match) {
     currentSuggestion = match.g;
-    document.getElementById('catSuggestionText').textContent = `${match.g} Â· ${match.cat || CATEGORIAS[match.g]}`;
+    document.getElementById('catSuggestionText').textContent = `${match.g} · ${match.cat || CATEGORIAS[match.g]}`;
     document.getElementById('catSuggestionBar').classList.add('show');
     document.getElementById('catLabel').classList.add('show');
   }
@@ -730,17 +730,17 @@ function acceptCatSuggestion() {
   if (currentSuggestion) {
     document.getElementById('categoria').value = currentSuggestion;
     document.getElementById('catSuggestionBar').classList.remove('show');
-    showToast('CategorÃ­a aplicada: ' + currentSuggestion);
+    showToast('Categoría aplicada: ' + currentSuggestion);
   }
 }
 
-// â”€â”€â”€ MONTO â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── MONTO ───────────────────────────────────────────────
 function updateMonto(input) {
   const val = parseInt(input.value) || 0;
-  document.getElementById('montoDisplay').textContent = 'â‚² ' + val.toLocaleString('es-PY');
+  document.getElementById('montoDisplay').textContent = '₲ ' + val.toLocaleString('es-PY');
 }
 
-// â”€â”€â”€ GUARDAR â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── GUARDAR ─────────────────────────────────────────────
 function guardarFactura() {
   const fecha = document.getElementById('fecha').value;
   const proveedor = document.getElementById('proveedor').value.trim();
@@ -748,7 +748,7 @@ function guardarFactura() {
   const monto = document.getElementById('monto').value;
 
   if (!fecha || !proveedor || !nroFactura || !monto) {
-    showToast('âš  CompletÃ¡ fecha, proveedor, NÂ° factura y monto');
+    showToast('⚠ Completá fecha, proveedor, N° factura y monto');
     return;
   }
 
@@ -759,8 +759,8 @@ function guardarFactura() {
   const categoriaNombre = categoriaG ? CATEGORIAS[categoriaG] || categoriaG : '';
 
   const O = window._ultimoOCR || {};
-  // El IVA que va a la planilla es el IMPORTE, no la tasa. Si la IA lo leyo se usa
-  // ese; si no, se calcula: 10% -> total/11, 5% -> total/21, exento -> 0.
+  // A la planilla va el IMPORTE del IVA, no la tasa. Si la IA lo leyó se usa ese;
+  // si no, se calcula: 10% -> total/11, 5% -> total/21, exento -> 0.
   const totalNum = parseInt(monto) || 0;
   let ivaMonto = (typeof O.iva === 'number' && O.iva > 0) ? Math.round(O.iva) : null;
   if (ivaMonto === null) {
@@ -793,7 +793,7 @@ function guardarFactura() {
   // antes que perder la factura.
   guardarLocal(factura);
   resetForm();
-  showToast('âœ“ Factura guardada Â· Enviando a Google Sheets...');
+  showToast('✓ Factura guardada · Enviando a Google Sheets...');
   enviarASheets(factura);
 }
 
@@ -812,10 +812,10 @@ function guardarLocal(factura) {
       try {
         facturas[0].foto = '';
         localStorage.setItem('ofitronic_v2', JSON.stringify(facturas));
-        showToast('âš  Guardada sin la foto: no habÃ­a espacio en el telÃ©fono');
+        showToast('⚠ Guardada sin la foto: no había espacio en el teléfono');
         return true;
       } catch (e3) {
-        showToast('âš  No se pudo guardar en el telÃ©fono Â· se envÃ­a igual a Sheets');
+        showToast('⚠ No se pudo guardar en el teléfono · se envía igual a Sheets');
         return false;
       }
     }
@@ -875,11 +875,11 @@ async function enviarASheets(factura) {
       ok = (j && j.status === 'ok');
       if (!ok) console.error('Sheets respondio:', j);
     } catch (e) { /* si no devuelve JSON, nos quedamos con resp.ok */ }
-    setTimeout(() => showToast(ok ? 'âœ“ Sincronizado con Google Sheets'
-                                  : 'âš  No se pudo guardar en Sheets Â· quedo local'), 1500);
+    setTimeout(() => showToast(ok ? '✓ Sincronizado con Google Sheets'
+                                  : '⚠ No se pudo guardar en Sheets · quedo local'), 1500);
   } catch(err) {
     console.error('Error enviando a Sheets:', err);
-    setTimeout(() => showToast('âš  Sin conexiÃ³n Â· Solo guardado localmente'), 1500);
+    setTimeout(() => showToast('⚠ Sin conexión · Solo guardado localmente'), 1500);
   }
 }
 
@@ -890,7 +890,7 @@ function resetForm() {
     el.value = '';
     el.classList.remove('ai-filled');
   });
-  document.getElementById('montoDisplay').textContent = 'â‚² 0';
+  document.getElementById('montoDisplay').textContent = '₲ 0';
   document.getElementById('categoria').value = '';
   document.getElementById('iva10').checked = true;
   document.getElementById('contado').checked = true;
@@ -908,7 +908,7 @@ function resetForm() {
   document.getElementById('fecha').value = hoy;
 }
 
-// â”€â”€â”€ TABLA â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── TABLA ───────────────────────────────────────────────
 function renderTabla(q = '') {
   q = q || document.querySelector('.search-box')?.value || '';
   const filterEstado = document.getElementById('filterEstado')?.value || '';
@@ -933,17 +933,17 @@ function renderTabla(q = '') {
 
   data.forEach(f => {
     const tr = document.createElement('tr');
-    const catDisplay = f.categoriaG ? `${f.categoriaG}` : 'â€”';
+    const catDisplay = f.categoriaG ? `${f.categoriaG}` : '—';
     tr.innerHTML = `
-      <td>${f.foto ? `<img src="${f.foto}" class="thumb" onclick="openModal(${f.id})" title="Ver foto">` : 'â€”'}</td>
+      <td>${f.foto ? `<img src="${f.foto}" class="thumb" onclick="openModal(${f.id})" title="Ver foto">` : '—'}</td>
       <td>${f.fecha}</td>
       <td style="max-width:130px;overflow:hidden;text-overflow:ellipsis;" title="${f.proveedor}">${f.proveedor}</td>
       <td>${f.nroFactura}</td>
-      <td>â‚² ${f.monto.toLocaleString('es-PY')}</td>
+      <td>₲ ${f.monto.toLocaleString('es-PY')}</td>
       <td>${f.iva}</td>
-      <td style="max-width:140px;overflow:hidden;text-overflow:ellipsis;" title="${f.categoriaNombre||''}">${catDisplay}${f.categoriaNombre ? ' Â· '+f.categoriaNombre.substring(0,20) : ''}</td>
+      <td style="max-width:140px;overflow:hidden;text-overflow:ellipsis;" title="${f.categoriaNombre||''}">${catDisplay}${f.categoriaNombre ? ' · '+f.categoriaNombre.substring(0,20) : ''}</td>
       <td><span class="status-badge status-${f.estado.toLowerCase()}">${f.estado}</span></td>
-      <td><button class="delete-btn" onclick="eliminar(${f.id})" title="Eliminar">ðŸ—‘</button></td>
+      <td><button class="delete-btn" onclick="eliminar(${f.id})" title="Eliminar">🗑</button></td>
     `;
     body.appendChild(tr);
   });
@@ -951,14 +951,14 @@ function renderTabla(q = '') {
 }
 
 function eliminar(id) {
-  if (!confirm('Â¿Eliminar esta factura?')) return;
+  if (!confirm('¿Eliminar esta factura?')) return;
   facturas = facturas.filter(f => f.id !== id);
   localStorage.setItem('ofitronic_v2', JSON.stringify(facturas));
   renderTabla();
   showToast('Factura eliminada');
 }
 
-// â”€â”€â”€ STATS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── STATS ───────────────────────────────────────────────
 function renderStats() {
   const total = facturas.length;
   const pendientes = facturas.filter(f => f.estado === 'Pendiente').length;
@@ -966,16 +966,16 @@ function renderStats() {
   document.getElementById('statsRow').innerHTML = `
     <div class="stat-card"><div class="stat-label">Total Facturas</div><div class="stat-value">${total}</div></div>
     <div class="stat-card"><div class="stat-label">Sin categorizar</div><div class="stat-value" style="color:${pendientes>0?'var(--pending)':'var(--accent)'}">${pendientes}</div></div>
-    <div class="stat-card"><div class="stat-label">Monto Total</div><div class="stat-value" style="font-size:16px;">â‚² ${montoTotal.toLocaleString('es-PY')}</div></div>
+    <div class="stat-card"><div class="stat-label">Monto Total</div><div class="stat-value" style="font-size:16px;">₲ ${montoTotal.toLocaleString('es-PY')}</div></div>
   `;
 }
 
-// â”€â”€â”€ MODAL â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── MODAL ───────────────────────────────────────────────
 function openModal(id) {
   const f = facturas.find(x => x.id == id);
   if (!f || !f.foto) return;
   document.getElementById('modalImg').src = f.foto;
-  document.getElementById('modalTitle').textContent = f.proveedor + ' Â· ' + f.nroFactura;
+  document.getElementById('modalTitle').textContent = f.proveedor + ' · ' + f.nroFactura;
   document.getElementById('modalOverlay').classList.add('open');
 }
 
@@ -985,10 +985,10 @@ function closeModal(e) {
   }
 }
 
-// â”€â”€â”€ EXPORT â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── EXPORT ──────────────────────────────────────────────
 function exportarExcel() {
   if (!facturas.length) { showToast('No hay facturas para exportar'); return; }
-  const headers = ['Fecha','Proveedor','NÂ° Factura','Timbrado','Tipo Pago','Tipo Factura','Monto','IVA','CÃ³digo G','CategorÃ­a','Estado','Observaciones'];
+  const headers = ['Fecha','Proveedor','N° Factura','Timbrado','Tipo Pago','Tipo Factura','Monto','IVA','Código G','Categoría','Estado','Observaciones'];
   const rows = facturas.map(f => [
     f.fecha, f.proveedor, f.nroFactura, f.timbrado||'',
     f.tipoPago, f.tipoFactura, f.monto, f.iva,
@@ -1004,10 +1004,10 @@ function exportarExcel() {
   a.download = `Ofitronic_Facturas_${new Date().toISOString().split('T')[0]}.csv`;
   a.click();
   URL.revokeObjectURL(url);
-  showToast('âœ“ Excel exportado');
+  showToast('✓ Excel exportado');
 }
 
-// â”€â”€â”€ TOAST â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── TOAST ───────────────────────────────────────────────
 let toastTimer;
 function showToast(msg) {
   const t = document.getElementById('toast');
