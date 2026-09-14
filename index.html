@@ -372,7 +372,7 @@ td { padding: 11px 13px; font-family: 'DM Mono', monospace; font-size: 11px; whi
       <div class="field">
         <label>📷 Foto de la Factura <span style="color:var(--accent);font-size:10px;font-weight:700;">· LA IA COMPLETA LOS CAMPOS AUTOMÁTICAMENTE</span></label>
         <div class="photo-zone" id="photoZone">
-          <input type="file" accept="image/*" capture="environment" id="photoInput" onchange="handlePhoto(this)">
+          <input type="file" accept="image/*,application/pdf" id="photoInput" onchange="handlePhoto(this)">
           <div class="photo-icon">📄</div>
           <div class="photo-label">Fotografiar o subir factura</div>
           <div class="photo-sub">La IA leerá los datos automáticamente</div>
@@ -568,7 +568,13 @@ function handlePhoto(input) {
   const reader = new FileReader();
   reader.onload = async (e) => {
     photoData = e.target.result;
-    document.getElementById('photoImg').src = photoData;
+    const esPdf = String(file.type || '').includes('pdf');
+    if (esPdf){
+      document.getElementById('photoImg').removeAttribute('src');
+      document.getElementById('photoImg').alt = '📄 ' + file.name;
+    } else {
+      document.getElementById('photoImg').src = photoData;
+    }
     document.getElementById('photoPreview').style.display = 'block';
     document.querySelector('.photo-icon').style.display = 'none';
     document.querySelector('.photo-label').style.display = 'none';
@@ -601,7 +607,9 @@ async function readInvoiceWithAI(base64Data) {
     const parsed = data.ok ? data.data : null;
 
     if (parsed) {
-      statusText.textContent = '✓ Datos extraídos correctamente';
+      window._ultimoOCR = parsed;
+      statusText.textContent = '✓ Datos extraídos correctamente' +
+        (parsed.cdc ? ' · CDC detectado' : '');
       fillFieldsFromAI(parsed);
       setTimeout(() => status.classList.remove('show'), 3000);
     } else {
@@ -749,10 +757,13 @@ function guardarFactura() {
   const categoriaG = document.getElementById('categoria').value;
   const categoriaNombre = categoriaG ? CATEGORIAS[categoriaG] || categoriaG : '';
 
+  const O = window._ultimoOCR || {};
   const factura = {
     id: Date.now(),
     fecha, proveedor,
     nroFactura,
+    ruc: (O.ruc || '').trim(),
+    cdc: String(O.cdc || '').replace(/\s/g, ''),
     timbrado: document.getElementById('timbrado').value.trim(),
     tipoPago, tipoFactura,
     monto: parseInt(monto),
@@ -780,6 +791,8 @@ async function enviarASheets(factura) {
       proveedor: factura.proveedor,
       nroFactura: factura.nroFactura,
       timbrado: factura.timbrado,
+      ruc: factura.ruc || '',
+      cdc: factura.cdc || '',
       tipoPago: factura.tipoPago,
       tipoFactura: factura.tipoFactura,
       monto: factura.monto,
@@ -811,6 +824,7 @@ async function enviarASheets(factura) {
 }
 
 function resetForm() {
+  window._ultimoOCR = null;
   ['proveedor','nroFactura','timbrado','monto','observaciones'].forEach(id => {
     const el = document.getElementById(id);
     el.value = '';

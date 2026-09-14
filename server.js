@@ -10,17 +10,18 @@ app.use(cors({
 }));
 
 app.options('*', cors());
-app.use(express.json({ limit: '20mb' }));
+app.use(express.json({ limit: '32mb' }));
 
 app.post('/leer-factura', async (req, res) => {
   try {
     const { image, mediaType } = req.body;
-    
+
     if (!image || !mediaType) {
       return res.status(400).json({ ok: false, error: 'Faltan campos image o mediaType' });
     }
 
-    console.log(`Procesando imagen: ${mediaType}, tamaño: ${image.length} chars`);
+    const esPdf = String(mediaType).toLowerCase().includes('pdf');
+    console.log(`Procesando ${esPdf ? 'PDF' : 'imagen'}: ${mediaType}, tamaño: ${image.length} chars`);
 
     if (!process.env.ANTHROPIC_API_KEY) {
       console.error('ERROR: ANTHROPIC_API_KEY no configurada');
@@ -40,10 +41,9 @@ app.post('/leer-factura', async (req, res) => {
         messages: [{
           role: 'user',
           content: [
-            {
-              type: 'image',
-              source: { type: 'base64', media_type: mediaType, data: image }
-            },
+            esPdf
+              ? { type: 'document', source: { type: 'base64', media_type: 'application/pdf', data: image } }
+              : { type: 'image', source: { type: 'base64', media_type: mediaType, data: image } },
             {
               type: 'text',
               text: `Sos un asistente de contabilidad paraguaya. Analizá esta factura y extraé los datos. Respondé SOLO con un JSON válido, sin texto adicional, sin backticks.
@@ -57,10 +57,18 @@ El JSON debe tener exactamente estos campos:
   "monto": número entero en guaraníes o null,
   "tipoPago": "Contado" o "Crédito" o null,
   "tipoFactura": "Electrónica" o "Física",
-  "iva": "5%" o "10%" o "Exento" o null
+  "iva": monto del IVA en guaraníes como número entero, o null,
+  "tasaIva": "5%" o "10%" o "Exento" o null,
+  "ruc": "RUC del EMISOR con guion y dígito verificador, ej 80000519-8, o null",
+  "cdc": "el CDC de 44 dígitos, sin espacios, o null"
 }
 
-Si no podés leer algún campo con certeza, usá null. El monto debe ser el TOTAL en guaraníes sin puntos ni comas.`
+Reglas importantes:
+- El RUC que necesito es el del EMISOR de la factura, no el del cliente (Carmen Nemetz / 3717062-7 es el cliente, ignoralo).
+- El CDC aparece en las facturas electrónicas al pie, cerca del QR, como un número largo de 44 dígitos agrupado en bloques. Devolvelo TODO junto sin espacios.
+- "monto" es el TOTAL de la factura en guaraníes, entero, sin puntos ni comas.
+- "iva" es el monto del IVA liquidado, entero. Si dice "TOTAL IVA 188.991", devolvé 188991.
+- Si no podés leer algún campo con certeza, usá null.`
             }
           ]
         }]
@@ -99,7 +107,7 @@ Si no podés leer algún campo con certeza, usá null. El monto debe ser el TOTA
   }
 });
 
-app.get('/', (req, res) => res.json({ status: 'Ofitronic API online', version: '1.2' }));
+app.get('/', (req, res) => res.json({ status: 'Ofitronic API online', version: '1.3', acepta: ['imagen', 'pdf'] }));
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Servidor Ofitronic corriendo en puerto ${PORT}`));
