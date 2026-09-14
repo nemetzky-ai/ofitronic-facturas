@@ -789,14 +789,23 @@ async function enviarASheets(factura) {
       estado: factura.estado,
       observaciones: factura.observaciones
     };
-    await fetch(SHEETS_URL, {
+    // text/plain evita el preflight de CORS: Apps Script igual lee el JSON del cuerpo.
+    // Sin 'no-cors' podemos leer la respuesta y saber de verdad si entro.
+    const resp = await fetch(SHEETS_URL, {
       method: 'POST',
-      mode: 'no-cors',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
       body: JSON.stringify(datos)
     });
-    setTimeout(() => showToast('✓ Sincronizado con Google Sheets'), 1500);
+    let ok = resp.ok;
+    try {
+      const j = await resp.json();
+      ok = (j && j.status === 'ok');
+      if (!ok) console.error('Sheets respondio:', j);
+    } catch (e) { /* si no devuelve JSON, nos quedamos con resp.ok */ }
+    setTimeout(() => showToast(ok ? '✓ Sincronizado con Google Sheets'
+                                  : '⚠ No se pudo guardar en Sheets · quedo local'), 1500);
   } catch(err) {
+    console.error('Error enviando a Sheets:', err);
     setTimeout(() => showToast('⚠ Sin conexión · Solo guardado localmente'), 1500);
   }
 }
