@@ -37,7 +37,7 @@ app.post('/leer-factura', async (req, res) => {
       },
       body: JSON.stringify({
         model: 'claude-sonnet-4-6',
-        max_tokens: 1000,
+        max_tokens: 1500,
         messages: [{
           role: 'user',
           content: [
@@ -86,12 +86,48 @@ Reglas importantes:
     const text = data.content?.[0]?.text || '';
     console.log('Texto recibido:', text.substring(0, 200));
     
-    let parsed;
+    // El modelo a veces devuelve el JSON con backticks, texto alrededor o comillas
+    // sin escapar. En vez de romperse, se limpia y, si aun asi falla, se extrae
+    // campo por campo. Una factura nunca se pierde por un problema de formato.
+    function limpiarJson(t) {
+      let x = String(t || '').trim();
+      x = x.replace(/^```(?:json)?/i, '').replace(/```$/, '').trim();
+      const a = x.indexOf('{'), b = x.lastIndexOf('}');
+      if (a >= 0 && b > a) x = x.slice(a, b + 1);
+      x = x.replace(/,\s*([}\]])/g, '$1');          // coma sobrante antes de cerrar
+      x = x.replace(/[\u201C\u201D]/g, '"');        // comillas curvas
+      return x;
+    }
+
+    function porCampos(t) {
+      const out = {};
+      const campos = ['fecha','proveedor','nroFactura','timbrado','monto','tipoPago',
+                      'tipoFactura','iva','tasaIva','ruc','cdc'];
+      for (const c of campos) {
+        const m = new RegExp('"' + c + '"\\s*:\\s*(?:"([^"]*)"|([-0-9.]+)|null)', 'i').exec(t);
+        if (m) out[c] = m[1] !== undefined ? m[1] : (m[2] !== undefined ? Number(m[2]) : null);
+      }
+      return Object.keys(out).length ? out : null;
+    }
+
+    let parsed = null;
     try {
-      parsed = JSON.parse(text.trim());
-    } catch {
-      const match = text.match(/\{[\s\S]*\}/);
-      if (match) parsed = JSON.parse(match[0]);
+      parsed = JSON.parse(limpiarJson(text));
+    } catch (e1) {
+      console.warn('JSON invalido, intento recuperar por campos:', e1.message);
+      parsed = porCampos(text);
+    }
+
+    if (parsed) {
+      // normalizaciones: el CDC sin espacios, los montos como numero
+      if (parsed.cdc) parsed.cdc = String(parsed.cdc).replace(/\D/g, '');
+      if (parsed.ruc) parsed.ruc = String(parsed.ruc).trim();
+      for (const k of ['monto', 'iva']) {
+        if (typeof parsed[k] === 'string') {
+          const n = Number(String(parsed[k]).replace(/[^0-9-]/g, ''));
+          parsed[k] = isNaN(n) ? null : n;
+        }
+      }
     }
 
     if (!parsed) {
@@ -107,7 +143,7 @@ Reglas importantes:
   }
 });
 
-app.get('/', (req, res) => res.json({ status: 'Ofitronic API online', version: '1.3', acepta: ['imagen', 'pdf'] }));
+app.get('/', (req, res) => res.json({ status: 'Ofitronic API online', version: '1.4', acepta: ['imagen', 'pdf'] }));
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Servidor Ofitronic corriendo en puerto ${PORT}`));
